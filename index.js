@@ -24,7 +24,9 @@ exports.uploadFile = (req, res) => {
     const uploads = []; // promises
     let fileSaved = false;
 
-    busboy.on("file", (fieldname, file, filename, encoding, mimetype) => {
+    busboy.on("file", (name, file, info) => {
+      const { filename, encoding, mimeType } = info;
+      const mimetype = mimeType;
       // accept field name 'file' (client must use this)
       console.log(`Uploading: ${filename} (${mimetype})`);
       const ext = path.extname(filename) || "";
