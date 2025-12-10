@@ -40,7 +40,7 @@ exports.uploadFile = (req, res) => {
       const promise = new Promise((resolve, reject) => {
         writeStream.on("finish", async () => {
           try {
-            const destination = filename; // or prefix as needed
+            const destination = "cloud-fun-uploaded/" + filename; // or prefix as needed
             await storage.bucket(BUCKET_NAME).upload(tempFilePath, {
               destination,
               metadata: { contentType: mimetype },
