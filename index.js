@@ -12,7 +12,7 @@ const inputBucket = process.env.BUCKET_NAME;
 const outputBucket = process.env.OUTPUT_BUCKET;
 const processorId = process.env.PROCESSOR_ID;
 const processorLocation = process.env.PROCESSOR_LOCATION; // example: "us" or "us-central1"
-
+const gCloudProject = process.env.GCLOUD_PROJECT;
 export const uploadFile = (req, res) => {
   if (req.method !== "POST") {
     res.status(405).send("Only POST allowed");
@@ -52,7 +52,7 @@ export const uploadFile = (req, res) => {
           const gcsOutputUri = `gs://${outputBucket}/docai-output/`; // folder prefix
 
           const request = {
-            name: `projects/${process.env.GCLOUD_PROJECT}/locations/${processorLocation}/processors/${processorId}`,
+            name: `projects/${gCloudProject}/locations/${processorLocation}/processors/${processorId}`,
             inputDocuments: {
               gcsDocuments: {
                 documents: [
