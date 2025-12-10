@@ -2,6 +2,7 @@
     "name": "gcf-upload",
     "version": "1.0.0",
     "dependencies": {
+        "@google-cloud/documentai": "^9.5.0",
         "@google-cloud/storage": "^6.10.0",
         "busboy": "^1.6.0"
     }
