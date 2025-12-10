@@ -26,9 +26,12 @@ exports.uploadFile = (req, res) => {
 
     busboy.on("file", (fieldname, file, filename, encoding, mimetype) => {
       // accept field name 'file' (client must use this)
+      console.log(`Uploading: ${filename} (${mimetype})`);
       const ext = path.extname(filename) || "";
       const tmpdir = os.tmpdir();
+      console.log("tempdir:", tmpdir);
       const tempFilePath = path.join(tmpdir, `${Date.now()}-${filename}`);
+      console.log("tempFilePath:", tempFilePath);
       const writeStream = fs.createWriteStream(tempFilePath);
       file.pipe(writeStream);
 
