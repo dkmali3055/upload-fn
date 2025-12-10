@@ -1,8 +1,8 @@
 {
-  "name": "gcf-upload",
-  "version": "1.0.0",
-  "dependencies": {
-    "@google-cloud/storage": "^6.10.0",
-    "busboy": "^1.6.0"
-  }
+    "name": "gcf-upload",
+    "version": "1.0.0",
+    "dependencies": {
+        "@google-cloud/storage": "^6.10.0",
+        "busboy": "^1.6.0"
+    }
 }
